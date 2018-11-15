@@ -12,4 +12,5 @@ import tk.mybatis.mapper.common.Mapper;
  */
 @Component
 public interface StudentMapper extends Mapper<Student> {
+    int save(Student student);
 }

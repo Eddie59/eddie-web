@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/student/update}" th:object="${data}" method="post" >
+    <input type="hidden" th:field="*{id}"/>
+
+    <!--#fields表示内置的关于字段的方法，fields.hasErrors('*')字段中有任何错误信息时-->
+    <div th:if="${#fields.hasErrors('*')}" role="alert">
+        <p th:each="error : ${#fields.errors('*')}" th:text="${error}">
+            error
+        </p>
+    </div>
+
+    <table>
+        <tr>
+            <td>姓名：</td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>年龄：</td>
+            <td>
+                <input type="text" th:field="*{age}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>姓别：</td>
+            <td>
+                <input type="text" th:field="*{gender}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">提交</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

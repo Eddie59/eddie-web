@@ -16,8 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @GetMapping
-    public ModelAndView index(){
-        return new ModelAndView("home/index","messages",null);
+    public String index(){
+        return "index";
     }
 
 }

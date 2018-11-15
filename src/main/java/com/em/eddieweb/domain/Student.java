@@ -1,6 +1,10 @@
 package com.em.eddieweb.domain;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Student class
@@ -8,20 +12,34 @@ import javax.persistence.Table;
  * @author Administrator
  * @date
  */
-@Table(name="student")
+@Table(name = "student")
 public class Student extends BaseEntity {
+
+    @Id
+    private Integer id;
+    @NotNull
+    @NotEmpty(message = "姓名不为空")
     private String name;
-    private int gender;
-    private int  age;
+    private Integer gender;
+    private Integer age;
     private String phone;
     private String address;
+    private Date instime;
 
-    public void setAge(int age) {
-        this.age = age;
+    public Integer getId() {
+        return id;
     }
 
-    public int getAge() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAge() {
         return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -36,7 +54,7 @@ public class Student extends BaseEntity {
         this.address = address;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -48,7 +66,7 @@ public class Student extends BaseEntity {
         this.phone = phone;
     }
 
-    public int getGender() {
+    public Integer getGender() {
         return gender;
     }
 
@@ -56,4 +74,11 @@ public class Student extends BaseEntity {
         return phone;
     }
 
+    public Date getInstime() {
+        return instime;
+    }
+
+    public void setInstime(Date instime) {
+        this.instime = instime;
+    }
 }
